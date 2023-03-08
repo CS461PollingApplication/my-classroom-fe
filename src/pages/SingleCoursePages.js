@@ -12,11 +12,15 @@ function DisplayCoursePage(){
 let { paramID } = useParams()
 
 return(
+    <>
     <div>
         <h2>{course[paramID].course_name}</h2>
         <p>{course[paramID].crn}</p>
         <p>{course[paramID].course_instructor}</p>
     </div>
+    <div> <button>Return To Lectures</button> </div>
+    <div> <button>View Students</button></div>
+    </>
 )
 
 }
