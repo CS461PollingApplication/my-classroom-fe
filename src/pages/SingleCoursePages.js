@@ -4,7 +4,6 @@ import { Routes, Route, Link, NavLink, useNavigate, useParams } from 'react-rout
 //replcae this with the API call.
 const course = require('./data/courseData.json') 
 
-
 //This function is going to be used to display the single course page from when the
 //user selects the course.  
 function DisplayCoursePage(){
