@@ -35,17 +35,17 @@ function Home() {
         <VerticalContainer>
             <Section>GitHub</Section>
             <HorizontalContainer>
+            <TextBox>
+                { githubInfo }
+            </TextBox>
+            </HorizontalContainer>
+            <HorizontalContainer>
                 <Link href="https://github.com/CS461PollingApplication/my-classroom-fe">
                     Project Frontend: <FontAwesomeIcon icon={faLink} />
                 </Link>
                 <Link href="https://github.com/CS461PollingApplication/my-classroom-backend">
                     Project Backend: <FontAwesomeIcon icon={faLink} />
                 </Link>
-            </HorizontalContainer>
-            <HorizontalContainer>
-            <TextBox>
-                { githubInfo }
-            </TextBox>
             </HorizontalContainer>
         </VerticalContainer>
         
@@ -75,6 +75,7 @@ const Subtitle = styled.h4`
 
 const Section = styled.h3`
     text-decoration: underline;
+    text-decoration-thickness: 2px;
 `
 
 const TextBox = styled.div`
@@ -96,6 +97,6 @@ const Contact = styled.div`
 
 const productSummary = "The Classroom Polling: Oregon State University project is an instance of the Open Source Polling Software developed as part of Oregon State University's senior capstone project."
 const productUse = "The project's goal is to provide an affordable and high quality polling system for teachers to utilize in the classroom. The system provides all the features of a paid service without any of the trailing zeroes. Teachers are able to create courses and sections, to which they invite their students. Teachers create lectures and questions, which they release at their own pace for students to interact with. Teachers and students alike can look back on the lectures to assess performance on the lecture's questions and overall lecture performance."
-const githubInfo = "The GitHub provides useful information about this project, including documentation and instruction to run the app."
+const githubInfo = "The GitHub provides useful information about this project, including documentation and instructions to run the app."
 
 export default Home
