@@ -63,7 +63,7 @@ function Home() {
             <HorizontalContainer>
                 <Contact>Matthew Hotchkiss: mphotchkiss01@gmail.com</Contact>
                 <Contact>Elayne Trimble: trimblma@oregonstate.edu</Contact>
-                <Contact>Gaven Robertson: </Contact>
+                <Contact>Gaven Robertson: robergav@oregonstate.edu</Contact>
                 <Contact>Sanjay Ramanathan: </Contact>
                 <Contact>Mitchell Stewart: </Contact>
             </HorizontalContainer>
