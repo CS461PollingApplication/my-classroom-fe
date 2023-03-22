@@ -31,19 +31,10 @@ function Home() {
             <TextBox>
                 { productUse }
             </TextBox>
+            <div style={usebuttoncontainer}>
+                <Button style={usebutton}>Use Polling Software</Button>
+            </div>
         </VerticalContainer>
-        <VerticalContainer>
-            <Section>Project Contacts</Section>
-            <HorizontalContainer>
-                <Contact>Matthew Hotchkiss: mphotchkiss01@gmail.com</Contact>
-                <Contact>Elayne Trimble: </Contact>
-                <Contact>Gaven Robertson: </Contact>
-                <Contact>Sanjay Ramanathan: </Contact>
-                <Contact>Mitchell Stewart: stewamit@oregonstate.edu</Contact>
-            </HorizontalContainer>
-        </VerticalContainer>
-        <VerticalContainer>
-            <Section>GitHub</Section>
         <VerticalContainer style={githublinks}>
             <Section1>GitHub Repo</Section1>
             <HorizontalContainer>
@@ -54,9 +45,6 @@ function Home() {
                     Project Backend: <FontAwesomeIcon icon={faLink} />
                 </Link>
             </HorizontalContainer>
-        </VerticalContainer>
-        <VerticalContainer>
-            <Button>Use Polling Software</Button>
         </VerticalContainer>
         <VerticalContainer style={contacts}>
             <Section2>Project Contacts</Section2>
@@ -69,7 +57,6 @@ function Home() {
             </HorizontalContainer>
         </VerticalContainer>
         
-        
     </>
 }
 
@@ -77,7 +64,24 @@ const title = {
     backgroundColor: "#70a84a",
     color: "white",
     paddingTop: "15%",
-    paddingBottom: "10%"
+    paddingBottom: "5%"
+}
+const usebuttoncontainer = {
+    paddingTop: "2.5%",
+    width: "35%",
+    paddingBottom: "20px"
+}
+const usebutton = {
+    backgroundColor: "#72767d",
+    border: "none",
+    width: "100%",
+    borderRadius: "15px",
+    paddingBottom: "4%",
+    paddingTop: "4%",
+   
+    fontFamily: "'Open Sans', sans-serif",
+    fontSize: "calc(7px + 1.6vw)",
+    fontWeight: "300",
 }
 const arrowdown ={
     backgroundColor: "#70a84a",
