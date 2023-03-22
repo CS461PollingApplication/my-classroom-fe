@@ -52,8 +52,8 @@ function Home() {
                 <Contact>Matthew Hotchkiss: mphotchkiss01@gmail.com</Contact>
                 <Contact>Elayne Trimble: trimblma@oregonstate.edu</Contact>
                 <Contact>Gaven Robertson: robergav@oregonstate.edu</Contact>
-                <Contact>Sanjay Ramanathan: </Contact>
-                <Contact>Mitchell Stewart: </Contact>
+                <Contact>Sanjay Ramanathan: ramanasa@oregonstate.edu</Contact>
+                <Contact>Mitchell Stewart: stewamit@oregonstate.edu</Contact>
             </HorizontalContainer>
         </VerticalContainer>
         
@@ -149,7 +149,7 @@ const Section1 = styled.h3`
 const Section2 = styled.h3`
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
-    font-size: calc(10px + 2.5vw);
+    font-size: calc(10px + 1.8vw);
 `
 
 const TextBox = styled.div`
