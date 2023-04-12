@@ -27,20 +27,22 @@ function App() {
     <>
 
       <Routes>
-        {/* There are only 3 accessible pages for users who are not logged in:
+        {/* There are only 4 accessible pages for users who are not logged in:
+            - home
             - create account
             - login
             - password reset
           */}
-        <Route path='/home' element={ <Home/> }/>
-        <Route element={ loggedIn ? <Navigate to='/'/> : <><Outlet/></>}>
-          <Route path='/login' element={ <Login/> } />
-          <Route path='/create' element={ < Signup /> } /> {/* redirects to landing page if a user is logged in already */}
-          <Route path='/reset' element={ < ResetPassword /> } /> {/* redirects to landing page if a user is logged in already */}
-        </Route>
-
-        { /* All routes below require a user be loggied in */}
         <Route element={ <Navigation inCourse={false}></Navigation> }>
+          <Route path='/home' element={ <Home/> }/>
+          <Route element={ loggedIn ? <Navigate to='/'/> : <><Outlet/></>}>
+            <Route path='/login' element={ <Login/> } />
+            <Route path='/create' element={ < Signup /> } /> {/* redirects to landing page if a user is logged in already */}
+            <Route path='/reset' element={ < ResetPassword /> } /> {/* redirects to landing page if a user is logged in already */}
+          </Route>
+
+          { /* All routes below require a user be loggied in */}
+        
           <Route path='/' element= {<Landing/> }/>
           <Route path='/profile' element={ <Profile /> } />
           <Route path='/confirm' element={ <Confirm /> } />
