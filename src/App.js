@@ -40,16 +40,17 @@ function App() {
         </Route>
 
         { /* All routes below require a user be loggied in */}
-        <Route element={ <Navigation></Navigation> }>
+        <Route element={ <Navigation inCourse={false}></Navigation> }>
           <Route path='/' element= {<Landing/> }/>
           <Route path='/profile' element={ <Profile /> } />
           <Route path='/confirm' element={ <Confirm /> } />
           <Route path='/createcourse' element={ <AddCourse/> }/>
-          <Route path='/:courseId'>
-              <Route path='' element={ <SingleCoursePage /> } />
-              {/* TODO: the remainder of the nested routes should go here */}
-          </Route>
         </Route>
+        <Route path='/:courseId' element={ <Navigation inCourse={true}></Navigation>}>
+            <Route path='' element={ <SingleCoursePage /> } />
+            {/* TODO: the remainder of the nested routes should go here */}
+        </Route>
+        
       </Routes>
     </>  
     );

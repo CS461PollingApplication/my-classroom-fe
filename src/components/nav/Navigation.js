@@ -6,7 +6,6 @@ import styled from '@emotion/styled/macro';
 
 function Navigation(props) {
     const [ course, role ] = useCourse()
-    console.log(role)
     const MainBody = styled.div`
         display: flex;
     `
@@ -14,7 +13,7 @@ function Navigation(props) {
     return <>
         <TopNavbar/>
         <MainBody>
-            { course.id && role == 'teacher' && <SideNavbar course={course} /> }
+            { props.inCourse && role == 'teacher' && <SideNavbar course={course} /> }
             <Outlet/>
         </MainBody>
     </> 
