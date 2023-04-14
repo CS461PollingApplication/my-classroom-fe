@@ -13,17 +13,17 @@ function SideNavbar(props) {
         {
             title: "Questions",
             icon: <QuestionMarkIcon />,
-            link: `courses/${props.course.id}/questions`
+            link: `questions`
         },
         {
             title: "Students",
             icon: <SchoolIcon />,
-            link: `courses/${props.course.id}/students`
+            link: `students`
         },
         {
             title: "Lectures",
             icon: <MenuBookIcon />,
-            link: `courses/${props.course.id}/lectures`
+            link: `lectures`
         }
     ]
 

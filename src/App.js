@@ -14,19 +14,18 @@ import Course from './pages/Course'
 import SingleCoursePage from './pages/SingleCoursePage'
 import AddCourse from './pages/AddCourse'
 import Home from './pages/Home'
-
 import Navigation from './components/nav/Navigation'
 import useAuth from './hooks/useAuth'
 import { Navigate, Outlet } from 'react-router-dom';
+import { TailSpin } from  'react-loader-spinner'
 
 function App() {
 
-  const loggedIn = useAuth()
+  const [ loggedIn, message, error, loading ] = useAuth()
 
   return (
     <>
-
-      <Routes>
+      { loading ? <TailSpin visible={true}/> : <Routes>
         {/* There are only 4 accessible pages for users who are not logged in:
             - home
             - create account
@@ -48,12 +47,18 @@ function App() {
           <Route path='/confirm' element={ <Confirm /> } />
           <Route path='/createcourse' element={ <AddCourse/> }/>
         </Route>
+
+          { /* All routes below require login and are within a course */ }
+
         <Route path='/:courseId' element={ <Navigation inCourse={true}></Navigation>}>
             <Route path='' element={ <SingleCoursePage /> } />
+            <Route path='students' element={ <div>Student Page</div>}/>
+            <Route path='questions' element={ <div>Questions Page</div>}/>
+            <Route path='lectures' element={ <div>Lectures Page</div>}/>
             {/* TODO: the remainder of the nested routes should go here */}
         </Route>
         
-      </Routes>
+      </Routes>}
     </>  
     );
 }
