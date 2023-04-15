@@ -29,7 +29,7 @@ function JoinCourse(props){
         const response = await apiUtil("post", "courses/join", { dispatch: dispatch, navigate: navigate}, joinCodePayload);
         setError(response.error)
         setMessage(response.message)
-        if (response.status == 200) {
+        if (response.status === 201) {
             dispatch(joinCourse(response.data.course))
         }
     }
