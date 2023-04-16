@@ -69,14 +69,19 @@ body{
     position: sticky;
     display: flex;
     justify-content: space-between;
-    padding-right: 20px;
+    padding-right: 1%;
     height: 5vh;
     z-index: 100;
 }
 
 .navbarMain .navbarItem{
     color: white !important;
-    font-size: 25px;
+    font-size: calc(8px + 1.5vw);
+    display: flex;
+}
+
+.navbarMain .navbarItem .main {
+    font-size: calc(12px + 1.5vw);
 }
 
 
@@ -90,11 +95,15 @@ body{
 }
 
 .navbarLeftContainer {
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .navbarRightContainer {
-
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /* Dropdown in Navbar */
@@ -102,17 +111,17 @@ body{
 .dropdownMenu {
     position: absolute;
     display: none;
-    flex-direction: column;
     background-color: rgb(221, 221, 221);
-    padding: 5px;
+    padding: 0.5dvi;
     border-radius: 3px;
-    top: 4vh;
+    top: 3vh;
     right: 0;
 }
 
 .dropdownIcon {
     color: white;
-    font-size: 40px;
+    width: calc(12px + 2vw);
+    height: calc(12px + 2vh);
 }
 
 .dropdown {
@@ -122,20 +131,24 @@ body{
 
 .dropdownLink {
     text-decoration: none;
-    padding: 0px 10px 0px 10px;
+    padding: 0 0.5vw 0 0.5vw;
     color: black !important;
-    font-size: 25px;
+    font-size: calc(10px + 1vw);
+}
+
+.dropdownItem {
 }
 
 .dropdownLink:hover {
     text-decoration: underline;
-
 }
 
 
 
 .dropdown:hover .dropdownMenu {
     display: flex;
+    flex-direction: column;
+    white-space: nowrap;
 }
 
 

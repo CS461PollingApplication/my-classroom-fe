@@ -1,6 +1,5 @@
 import { React, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import './components.css'
 import useAuth from '../../hooks/useAuth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,20 +8,18 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 //NavBar for the whole website.
 function TopNavbar(props) {
     return (
-        <div>
-            <Navbar className='navbarMain' expand="lg">
+            <div className='navbarMain' expand="lg">
                 <div className='navbarLeftContainer'>
-                    <Navbar.Brand className='navbarItem main'><NavLink className='navbarItem' to='/home'>{process.env.REACT_APP_NAME}</NavLink></Navbar.Brand>
+                    <div className='navbarItem main'><NavLink className='navbarItem' to='/home'>{process.env.REACT_APP_NAME}</NavLink></div>
                     { props.loggedIn && <NavLink className='navbarItem' to='/'>Courses</NavLink> }
                 </div>
                 <div className="navbarRightContainer">
                     <div className="dropdown">
-                        <div className="dropdownIcon"><FontAwesomeIcon icon={faUser} /></div>
+                        <div><FontAwesomeIcon className="dropdownIcon" icon={faUser}/></div>
                         <UserMenu loggedIn={props.loggedIn}/>
                     </div>
                 </div>
-            </Navbar>
-        </div>
+            </div>
     );
 }
 
@@ -30,12 +27,12 @@ function UserMenu(props) {
     return <>{ 
         props.loggedIn === true ? 
                         <div className="dropdownMenu">
-                            <NavLink className='dropdownLink' to='/profile'>Profile</NavLink>
-                            <NavLink className='dropdownLink' to='/login'>Logout</NavLink> {/* TODO: attach logout functionality (i.e. API request trigger)*/}
+                            <div className="dropdownItem"><NavLink className='dropdownLink' to='/profile'>Profile</NavLink></div>
+                            <div className="dropdownItem"><NavLink className='dropdownLink' to='/login'>Logout</NavLink></div> {/* TODO: attach logout functionality (i.e. API request trigger)*/}
                         </div>
                         : <div className="dropdownMenu">
-                            <NavLink className='dropdownLink' to='/create'>Create Account</NavLink>
-                            <NavLink className='dropdownLink' to='/login'>Login</NavLink>
+                            <div className="dropdownItem"><NavLink className='dropdownLink' to='/create'>Sign Up</NavLink></div>
+                            <div className="dropdownItem"><NavLink className='dropdownLink' to='/login'>Login</NavLink></div>
                         </div>
     }</>
 }
