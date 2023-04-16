@@ -8,19 +8,17 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 //NavBar for the whole website.
 function TopNavbar(props) {
-    const [ loggedIn, message, error, loading ] = useAuth()
-
     return (
         <div>
             <Navbar className='navbarMain' expand="lg">
                 <div className='navbarLeftContainer'>
                     <Navbar.Brand className='navbarItem main'><NavLink className='navbarItem' to='/home'>{process.env.REACT_APP_NAME}</NavLink></Navbar.Brand>
-                    { loggedIn && <NavLink className='navbarItem' to='/'>Home Page</NavLink> }
+                    { props.loggedIn && <NavLink className='navbarItem' to='/'>Courses</NavLink> }
                 </div>
                 <div className="navbarRightContainer">
                     <div className="dropdown">
                         <div className="dropdownIcon"><FontAwesomeIcon icon={faUser} /></div>
-                        <UserMenu loggedIn={loggedIn}/>
+                        <UserMenu loggedIn={props.loggedIn}/>
                     </div>
                 </div>
             </Navbar>

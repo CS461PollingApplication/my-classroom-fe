@@ -5,7 +5,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { borderRadius, fontFamily, fontStyle, minHeight } from '@mui/system';
 
 function Home() {
-    return <>
+    return <div>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet"/>
@@ -57,7 +57,7 @@ function Home() {
             </HorizontalContainer>
         </VerticalContainer>
         
-    </>
+    </div>
 }
 
 const title = {
