@@ -1,8 +1,9 @@
-const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS } = require('../actions')
+const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_SECTIONS } = require('../actions')
 
 const emptyState = {
     studentCourses: null,
     teacherCourses: null,
+    sections: {},
     lectures: {},
     questions: {}
 }
@@ -46,6 +47,16 @@ function coursesReducer(state = emptyState, action) {
             return{
                 ...state,
                 studentCourses: [...state.studentCourses, action.course]
+            }
+        case ADD_SECTIONS:
+            let newSections = {}
+            newSections[action.courseId] = action.sections
+            return {
+                ...state,
+                sections: {
+                    ...state.sections,
+                    ...newSections
+                }
             }
         case ADD_LECTURES: // should be called after API returns course data for a user
             let newLectures = {}
