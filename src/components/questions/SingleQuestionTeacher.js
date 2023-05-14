@@ -11,7 +11,7 @@ function SingleQuestionTeacher(props) {
     const navigate = useNavigate()
     const { courseId, lectureId } = useParams()
 
-    const editable = props.editable || false // TODO: update to props.editable || false once update API endpoint has been implemented
+    const editable = false // TODO: update to props.editable || false once update API endpoint has been implemented
     const [ message, setMessage ] = useState("")
     const [ error, setError ] = useState(false)
     const [ loading, setLoading ] = useState(false)

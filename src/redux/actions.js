@@ -29,7 +29,7 @@ export const UPDATE_COURSE = "UPDATE_COURSE"
 export const JOIN_COURSE = "JOIN_COURSE"
 export const ADD_LECTURES = "ADD_LECTURES"
 export const ADD_QUESTIONS = "ADD_QUESTIONS"
-export const ADD_QUESTION = "AD_QUESTION"
+export const ADD_QUESTION = "ADD_QUESTION"
 
 export function setCourses(studentCourses, teacherCourses) {
     return { type: SET_COURSES, studentCourses, teacherCourses }
