@@ -14,6 +14,10 @@ export function getCourses(state) {
     return state.courses
 }
 
+export function getEnrollments(state) {
+    return state.courses.enrollments
+}
+
 export function getSections(state) {
     return state.courses.sections
 }

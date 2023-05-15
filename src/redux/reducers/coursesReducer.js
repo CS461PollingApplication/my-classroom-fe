@@ -1,9 +1,10 @@
-const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_SECTIONS } = require('../actions')
+const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_SECTIONS, ADD_ENROLLMENTS } = require('../actions')
 
 const emptyState = {
     studentCourses: null,
     teacherCourses: null,
     sections: {},
+    enrollments: {},
     lectures: {},
     questions: {}
 }
@@ -48,6 +49,16 @@ function coursesReducer(state = emptyState, action) {
                 ...state,
                 studentCourses: [...state.studentCourses, action.course]
             }
+        case ADD_ENROLLMENTS:
+            let newEnrollments = {}
+            newEnrollments[action.courseId] = action.enrollments
+            return {
+                ...state,
+                enrollments: {
+                    ...state.enrollments,
+                    ...newEnrollments
+                }
+            }        
         case ADD_SECTIONS:
             let newSections = {}
             newSections[action.courseId] = action.sections
