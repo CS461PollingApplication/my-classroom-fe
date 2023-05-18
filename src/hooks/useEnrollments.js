@@ -20,7 +20,6 @@ function useEnrollments() {
             const response = await apiUtil("get", `courses/${courseId}/enrollments`, { dispatch: dispatch, navigate: navigate} );
             setMessage(response.message)
             setError(response.error)
-            console.log(response.data)
             if (response.status === 200) {
                 dispatch(addEnrollments(courseId, response.data))
             }

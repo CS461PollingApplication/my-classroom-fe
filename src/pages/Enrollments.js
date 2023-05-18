@@ -11,11 +11,10 @@ function Enrollments(props) {
     return(
         <>
         { message ? <Notice error={error ? "error" : ""} message={message}/> : (!enrollments) ? <Notice message={"No students are enrolled in this course"}/> : <></>}
-
         <ul className="allstudents">
-        { (loading) ? <TailSpin visible={true}/> : enrollments[courseId].enrollments.map((enrollment) => {
-            return enrollment.sectionId == sectionId ? <StudentListItem key={enrollment.id} student={enrollment} courseId={courseId}/> : <></>
-        })}
+            { (loading) ? <TailSpin visible={true}/> : enrollments[courseId].enrollments.map((enrollment) => {
+                return enrollment.sectionId == sectionId ? <StudentListItem key={enrollment.id} student={enrollment} courseId={courseId}/> : <></>
+            })}
         </ul>
         </>
     )

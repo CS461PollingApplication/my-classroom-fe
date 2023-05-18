@@ -219,6 +219,7 @@ body{
 /* Roster CSS */
 
 .allstudents {
+    display: block;
     width: 80vw;
     margin: 10px;
     padding: 1.5vh 3vw 1.5vh 1vw;
@@ -228,9 +229,16 @@ body{
     overflow: hidden;
     font-size: calc(10px + 0.8vw);
     border: solid 1px black;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 1vh;
-    margin-bottom: 0.4vh;
+    margin-bottom: 0.8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.studentemail {
+    font-size: calc(11px + 0.4vw);
 }
 
 
