@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './components.css'
 import SchoolIcon from '@mui/icons-material/School';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import PeopleIcon from '@mui/icons-material/People';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import useCourse from '../../hooks/useCourse'
 
@@ -26,6 +27,11 @@ function SideNavbar(props) {
             title: "Lectures",
             icon: <MenuBookIcon />,
             link: `${course.id}/lectures`
+        },
+        {
+            title: "Roster",
+            icon: <PeopleIcon />,
+            link: `${course.id}/roster`
         }
     ]
 
