@@ -11,7 +11,7 @@ function Signup(props){
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [ message, setMessage ] = useState("")
-    const [ error, setError ] = useState(false)
+    const [ error, setError ] = useState("")
     const emailInput = useRef(null)
     const passwordInput = useRef(null)
     const confirmPasswordInput = useRef(null)
@@ -25,10 +25,8 @@ function Signup(props){
         let response = {}
 
         response = await apiUtil('post', '/users', {}, accountPayload)
-        console.log(" ==response: ", response)
-        console.log(" ==response: ", response.message)
 
-        setError(response.error)
+        setError(response)
         setMessage(response.message)
         setEmail("")
         setPassword("")
