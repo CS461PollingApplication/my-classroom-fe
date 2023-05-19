@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
-function SectionCard (props) { // TODO: write css class for 'section-card'
+function SectionCard (props) { 
     return (<>
         <div className="section-card">
             <Card>
