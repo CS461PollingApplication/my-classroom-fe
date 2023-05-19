@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import './components.css'
 import SchoolIcon from '@mui/icons-material/School';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import PeopleIcon from '@mui/icons-material/People';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import useCourse from '../../hooks/useCourse'
 
@@ -27,7 +26,7 @@ function SideNavbar(props) {
             title: "Lectures",
             icon: <MenuBookIcon />,
             link: `${course.id}/lectures`
-        },
+        }
     ]
 
     // TODO: check the role of the user in this course and only render if teacher for now

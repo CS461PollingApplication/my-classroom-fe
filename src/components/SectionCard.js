@@ -10,7 +10,7 @@ function SectionCard (props) {
                 <Card.Body>
                     {
                         <Link to={`/${props.courseId}/roster/${props.section.id}`}>
-                            <Button className="viewLectureBtn">
+                            <Button>
                             View students in section
                             </Button>
                         </Link>
