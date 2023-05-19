@@ -16,7 +16,6 @@ import Lectures from './pages/Lectures'
 import Lecture from './pages/Lecture'
 import Questions from './pages/Questions'
 import CreateQuestion from './pages/CreateQuestion'
-import Question from './pages/Question'
 import Roster from './pages/Roster'
 import Enrollments from './pages/Enrollments';
 import SingleCoursePage from './pages/SingleCoursePage'
@@ -61,7 +60,6 @@ function App() {
             <Route path='/createcourse' element={ <AddCourse/> }/>
             <Route path='/:courseId'>
               <Route path='' element={ <SingleCoursePage /> } /> 
-              <Route path='students' element={ <div>Student Page</div>}/>
               <Route path='questions' element={<Outlet/>}>
                 <Route path='' element={ <Questions/>}/>
                 <Route path=':questionId' element={ <SingleQuestion/>}/>

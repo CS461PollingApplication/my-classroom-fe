@@ -21,18 +21,13 @@ function SideNavbar(props) {
         {
             title: "Students",
             icon: <SchoolIcon />,
-            link: `${course.id}/students`
+            link: `${course.id}/roster`
         },
         {
             title: "Lectures",
             icon: <MenuBookIcon />,
             link: `${course.id}/lectures`
         },
-        {
-            title: "Roster",
-            icon: <PeopleIcon />,
-            link: `${course.id}/roster`
-        }
     ]
 
     // TODO: check the role of the user in this course and only render if teacher for now
