@@ -95,7 +95,7 @@ function Signup(props){
             </form>
 
             <div>
-                { message !== "" && <Notice message={message} error={error}/> }
+                { message !== "" && <Notice message={message} error={error ? "error" : ""}/> }
             </div>
 
         </div>
