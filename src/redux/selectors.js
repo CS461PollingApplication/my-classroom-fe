@@ -22,6 +22,10 @@ export function getQuestions(state) {
     return state.courses.questions
 }
 
+export function getSections(state) {
+    return state.courses.sections
+}
+
 /*
     LECTURE SELECTORS
 */

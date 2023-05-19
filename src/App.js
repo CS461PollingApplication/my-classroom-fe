@@ -14,6 +14,7 @@ import Landing from './pages/Landing'
 import Course from './pages/Course'
 import Lectures from './pages/Lectures'
 import Lecture from './pages/Lecture'
+import Sections from './pages/Sections'
 import Questions from './pages/Questions'
 import CreateQuestion from './pages/CreateQuestion'
 import SingleCoursePage from './pages/SingleCoursePage'
@@ -76,6 +77,9 @@ function App() {
                 </Route>
               </Route>
               <Route path='createlecture' element={<AddLecture/>}/>
+              <Route path='sections' element={<Outlet/>}>
+                <Route path='' element={<Sections/>}/>
+              </Route>
                 {/* TODO: the remainder of the nested routes should go here */}
             </Route>
           </Route>
