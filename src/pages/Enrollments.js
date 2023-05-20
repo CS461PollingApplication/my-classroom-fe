@@ -13,7 +13,7 @@ function Enrollments(props) {
         { message ? <Notice error={error ? "error" : ""} message={message}/> : (!enrollments) ? <Notice message={"No students are enrolled in this course"}/> : <></>}
         <ul className="allstudents">
             { (loading) ? <TailSpin visible={true}/> : enrollments[courseId].enrollments.map((enrollment) => {
-                return enrollment.sectionId == sectionId ? <StudentListItem key={enrollment.id} student={enrollment} courseId={courseId}/> : <div key={enrollment.id}></div>
+                return enrollment.sectionId == sectionId ? <StudentListItem key={enrollment.id} student={enrollment}/> : <div key={enrollment.id}></div>
             })}
         </ul>
         </>
