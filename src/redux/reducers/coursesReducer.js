@@ -1,8 +1,10 @@
-const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_SECTIONS } = require('../actions')
+const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_SECTIONS, ADD_ENROLLMENTS } = require('../actions')
 
 const emptyState = {
     studentCourses: null,
     teacherCourses: null,
+    sections: {},
+    enrollments: {},
     lectures: {},
     questions: {},
     sections: {}
@@ -48,6 +50,24 @@ function coursesReducer(state = emptyState, action) {
                 ...state,
                 studentCourses: [...state.studentCourses, action.course]
             }
+        case ADD_ENROLLMENTS:
+            let newEnrollments = {}
+            newEnrollments[action.courseId] = action.enrollments
+            return {
+                ...state,
+                enrollments: {
+                    ...state.enrollments,
+                    ...newEnrollments
+                }
+            }        
+        case ADD_SECTIONS:
+            return {
+                ...state,
+                sections: {
+                    ...state.sections,
+                    [action.courseId]: action.sections
+                }
+            }
         case ADD_LECTURES: // should be called after API returns course data for a user
             let newLectures = {}
             newLectures[action.courseId] = action.lectures
@@ -66,14 +86,6 @@ function coursesReducer(state = emptyState, action) {
                 questions: {
                     ...state.questions,
                     ...newQuestions
-                }
-            }
-        case ADD_SECTIONS:
-            return {
-                ...state,
-                sections: {
-                    ...state.sections,
-                    [action.courseId]: action.sections
                 }
             }
         default:

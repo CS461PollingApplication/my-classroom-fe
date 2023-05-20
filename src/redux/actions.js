@@ -27,9 +27,10 @@ export const CREATE_COURSE = "CREATE_COURSE"
 export const DELETE_COURSE = "DELETE_COURSE"
 export const UPDATE_COURSE = "UPDATE_COURSE"
 export const JOIN_COURSE = "JOIN_COURSE"
+export const ADD_ENROLLMENTS = "ADD_ENROLLMENTS"
+export const ADD_SECTIONS = "ADD_SECTIONS"
 export const ADD_LECTURES = "ADD_LECTURES"
 export const ADD_QUESTIONS = "ADD_QUESTIONS"
-export const ADD_SECTIONS = "ADD_SECTIONS"
 
 export function setCourses(studentCourses, teacherCourses) {
     return { type: SET_COURSES, studentCourses, teacherCourses }
@@ -51,16 +52,20 @@ export function joinCourse(course) {
     return { type: JOIN_COURSE, course }
 }
 
+export function addEnrollments(courseId, enrollments) {
+    return { type: ADD_ENROLLMENTS, courseId, enrollments}
+}
+
+export function addSections(courseId, sections) {
+    return { type: ADD_SECTIONS, courseId, sections}
+}
+
 export function addLectures(courseId, lectures) {
     return { type: ADD_LECTURES, courseId, lectures}
 }
 
 export function addQuestions(courseId, questions) {
     return { type: ADD_QUESTIONS, courseId, questions}
-}
-
-export function addSections(courseId, sections) {
-    return { type: ADD_SECTIONS, courseId, sections }
 }
 
 export const STAGE_QUESTION_IN_LECTURE = "STAGE_QUESTION_IN_LECTURE"
