@@ -387,5 +387,140 @@ hr {
 }
 
 .course-card {
+    min-width: 300px;
     width: 30%;
 }
+
+/* Lectures */
+
+.lectures {
+    width: 100%;
+}
+
+.lecture-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+#lecture-subtitle {
+    font-size: 27px;
+    margin-top: auto;
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
+
+.lecture-card {
+    min-width: 300px;
+    width: 29%;
+}
+
+.create-lecture-btn {
+    margin-left: auto;
+    margin-top: auto;
+}
+
+/* Back button */
+
+.back-btn {
+    width: 40px;
+    background-image: url(../../public/free-back-arrow-1767531-1502435.webp);
+    background-size: cover;
+    border: none;
+    background-color: transparent;
+}
+
+.back-btn:hover {
+    border: none;
+    background-color: transparent;
+}
+
+.back-btn-lectures {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    margin-top: auto;
+}
+
+.lectures-top-bar {
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+}
+
+/* Create */
+
+.create-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.create-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.back-btn-create {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40px;
+    height: 40px;
+}
+
+.create-subtitle {
+    font-size: 35px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+}
+
+.create-hr-bar {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.inputPublishedContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.create-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#create-submit {
+    margin-left: 10px;
+}
+
+.inputOrderContainer {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#lecture-order-subtitle {
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#lecture-order-textentry {
+    width: 30%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Lecture */

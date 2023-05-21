@@ -14,7 +14,7 @@ function Landing(props) {
     
     // cards for student and teacher courses
     return(
-        <div class="landing-page">
+        <div className="landing-page">
             {/*No Courses*/}
             { message ? <Notice error={error ? "error" : ""} message={message}/> : (!courses.studentCourses && !courses.instructorCourses) ? <Notice message={"You do not have any courses yet"}/> : <></>}
             {/*Join Course button for all users*/}
@@ -22,8 +22,8 @@ function Landing(props) {
 
             {/*Student Courses*/}
             { loading ? <TailSpin visible={true}/> : <div class="all-courses"> 
-                {courses.studentCourses && <div id="student-courses">
-                    <p id="landing-subtitle" >Student Courses:</p>
+                {courses.studentCourses != null && <div id="student-courses">
+                    <p id="landing-subtitle" >Student Courses</p>
                     <hr></hr>
 
                     <div className='courses'>
@@ -39,7 +39,7 @@ function Landing(props) {
                         <Button variant="primary" className='btn-add'>Create Course</Button>
                     </Link>
 
-                    <p id="landing-subtitle">Teacher Courses:</p>
+                    <p id="landing-subtitle">Instructor Courses</p>
                     <hr></hr>
                     
                     <div className='courses'>

@@ -1,4 +1,4 @@
-const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_QUESTION } = require('../actions')
+const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_QUESTION, TOGGLE_PUBLISHED_STATE_FOR_LECTURE } = require('../actions')
 
 const emptyState = {
     studentCourses: null,
@@ -53,6 +53,30 @@ function coursesReducer(state = emptyState, action) {
                 lectures: {
                     ...state.lectures,
                     [action.courseId]: action.lectures
+                }
+            }
+        case TOGGLE_PUBLISHED_STATE_FOR_LECTURE:  
+            let newLectureforSection = state.lectures[action.courseId][action.lectureId-1].LectureForSections
+            if(newLectureforSection != []){
+                newLectureforSection[action.lectureId].published = !newLectureforSection[action.lectureId].published
+            }
+
+            let lecturesForCourse = state.lectures[action.courseId].map((lecture) => {
+                if(lecture.id === action.lectureId){
+                    return{
+                        ...lecture,
+                        LectureForSections: newLectureforSection
+                    }
+                }
+                else{
+                    return lecture
+                }
+            })
+            return {
+                ...state,
+                lectures: {
+                    ...state.lectures,
+                    [action.courseId]: lecturesForCourse
                 }
             }
         case ADD_QUESTIONS:

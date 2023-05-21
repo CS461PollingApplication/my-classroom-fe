@@ -24,7 +24,7 @@ function QuestionCard(props){
     async function changePublishState(){
         //call the api for an update 
         setLoading(true)
-        const response = await apiUtil("put", `/courses/${props.courseId}/lectures/${props.lectureId}/questions/${props.question.id}}`, { dispatch: dispatch, navigate: navigate})
+        const response = await apiUtil("put", `/courses/${courseId}/lectures/${lectureId}/questions/${props.question.id}}`, { dispatch: dispatch, navigate: navigate})
         setLoading(false)
         setError(response.error)
         setMessage(response.message)

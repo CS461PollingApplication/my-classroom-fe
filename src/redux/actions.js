@@ -30,6 +30,7 @@ export const JOIN_COURSE = "JOIN_COURSE"
 export const ADD_LECTURES = "ADD_LECTURES"
 export const ADD_QUESTIONS = "ADD_QUESTIONS"
 export const ADD_QUESTION = "ADD_QUESTION"
+export const TOGGLE_PUBLISHED_STATE_FOR_LECTURE = "TOGGLE_PUBLISHED_STATE_FOR_LECTURE"
 
 export function setCourses(studentCourses, teacherCourses) {
     return { type: SET_COURSES, studentCourses, teacherCourses }
@@ -53,6 +54,10 @@ export function joinCourse(course) {
 
 export function addLectures(courseId, lectures) {
     return { type: ADD_LECTURES, courseId, lectures}
+}
+
+export function togglePublishedLecture(courseId, lectureId){
+    return { type: TOGGLE_PUBLISHED_STATE_FOR_LECTURE, courseId, lectureId}
 }
 
 export function addQuestions(courseId, questions) {

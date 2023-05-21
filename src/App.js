@@ -13,7 +13,7 @@ import Confirm from './pages/Confirm'
 import Landing from './pages/Landing'
 import Course from './pages/Course'
 import Lectures from './pages/Lectures'
-import Lecture from './pages/Lecture'
+import SingleLecture from './pages/SingleLecture'
 import Questions from './pages/Questions'
 import CreateQuestion from './pages/CreateQuestion'
 import SingleCoursePage from './pages/SingleCoursePage'
@@ -67,7 +67,7 @@ function App() {
               <Route path='lectures' element={ <Outlet/>}>
                 <Route path='' element={<Lectures/>}/>
                 <Route path=':lectureId' element={<Outlet/>}>
-                  <Route path='' element={<Lecture/>}/>
+                  <Route path='' element={<SingleLecture/>}/>
                   <Route path='questions' element={<Outlet/>}>
                     <Route path='' element={<Questions/>}/>
                     <Route path='add' element={<CreateQuestion/>} />
