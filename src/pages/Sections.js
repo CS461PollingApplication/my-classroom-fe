@@ -24,20 +24,14 @@ function Sections() {
         <div className="contentView">
             <div className="header">
                 { showCreateModal && <Popup close={closeCreateModal}><AddSection/></Popup> }
-                <button className="btn btn-add" onClick={(e) => {openCreateModal()}}>Create Section</button>
+                <button className="btn btn-add btn-secondary" onClick={(e) => {openCreateModal()}}>Create Section</button>
                 { message && <Notice error={error ? "error" : ""} message={message}/>}
             </div>
-            <div className="">
-                { loading ? <TailSpin visible={true}/> : <>
-                    {/*Teacher Courses*/}
-                    { sections[courseId] != null ? <div id="teacher-courses">
-                        <div>
-                            {sections[courseId].map((section) => {
+            <div className="horizontal-flex-container">
+                { loading ? <TailSpin visible={true}/> : sections[courseId] != null ? sections[courseId].map((section) => {
                                 return <SectionCard key={section.id} section={section} />
-                            })}
-                        </div>
-                    </div> : <Notice message={"You have not created any sections for this course yet"}/>}
-                </>}
+                            }) : <Notice message={"You have not created any sections for this course yet"}/>
+                }
             </div>
         </div>
         

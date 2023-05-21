@@ -14,23 +14,21 @@ function Lectures(props){
     const [ course, role, Cmessage, Cerror, Cloading ] = useCourse()
 
     return (
-        <>
-        {/*No Lectures*/}
-        { message ? <Notice error={error ? "error" : ""} message={message}/> : (!lectures) ? <Notice message={"You Do Not Have Any Lectures Yet"}/> : <></>}
-
-        {/*Add Lecture Button - ONLY if enrollment == instructor*/}
-        <div className="buttons">
-            <Link to={`/${courseId}/createlecture`}>
-                <Button variant="secondary">Create Lecture</Button>
-            </Link>
+        <div className="contentView">
+            {/*Add Lecture Button - ONLY if enrollment == instructor*/}
+            <div className="header">
+                <Link to={`/${courseId}/createlecture`}>
+                    <button className="btn-add btn btn-secondary">Create Lecture</button>
+                </Link>
+            </div>
+            {/*No Lectures*/}
+            { message ? <Notice error={error ? "error" : ""} message={message}/> : (!lectures) ? <Notice message={"You Do Not Have Any Lectures Yet"}/> : <></>}
+            <div className="horizontal-flex-container">
+                { (Cloading || loading) ? <TailSpin visible={true}/> : lectures[courseId].map((lecture) => {
+                    return <LectureCard key={lecture.id} lecture={lecture} view={role} />
+                })}
+            </div>
         </div>
-
-        <div className="lecture-container">
-            { (Cloading || loading) ? <TailSpin visible={true}/> : lectures[courseId].map((lecture) => {
-                return <LectureCard key={lecture.id} lecture={lecture} view={role} />
-            })}
-        </div>
-        </>
     )
 }
 

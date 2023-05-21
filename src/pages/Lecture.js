@@ -16,7 +16,8 @@ function Lecture() {
     const [questions, message, error, loading] = useLectureQuestions()
     const [course, role, Cmessage, Cerror, Cloading ] = useCourse()
     const [lectures, Lmessage, Lerror, Lloading] = useLectures()
-    const { courseId, lectureId } = useParams()
+    // the Lecture component only sometimes is for a section, so we condition a lot of rendering on the presence/absence of sectionId
+    const { courseId, lectureId, sectionId } = useParams() 
     const [published, setPublished] = useState(awaitPublish())
     //const sectionId = lectures[courseId][lectureId-1].LectureForSections[0].id
     const [load, setLoading] = useState(false)

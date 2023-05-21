@@ -310,7 +310,7 @@ body{
     padding: 0.5vw;
 }
 
-.questionButton {
+.dynamic-btn {
     font-size: calc(10px + 0.5vw);
     border-radius: 5px;
     margin-top: 1px;
@@ -319,7 +319,7 @@ body{
     color: white;
 }
 
-.questionButton:hover {
+.dynamic-btn:hover {
     color: white;
 }
 
@@ -452,4 +452,15 @@ body{
 .student-question-li {
     font-size: x-large;
     margin-left: 20px;
+}
+
+
+.horizontal-flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.lecture-card {
+    margin: 5px;
 }

@@ -84,9 +84,9 @@ function Questions(props) {
                         }}>
                             <input className="searchBar" value={inputQuery} placeholder= "Question Stem" onChange={e => setInputQuery(e.target.value)} />
                             <div className="split-space">
-                                <button className="questionButton btn btn-primary" type="submit">Search</button>
+                                <button className="dynamic-btn btn btn-primary" type="submit">Search</button>
                                 <div>&nbsp;</div>
-                                <button className="questionButton btn btn-add" onClick={((event) => event.preventDefault())}><NavLink className='basicLink' to='add'>Create Question</NavLink></button>
+                                <button className="dynamic-btn btn btn-add" onClick={((event) => event.preventDefault())}><NavLink className='basicLink' to='add'>Create Question</NavLink></button>
                             </div>
                             
                         </form>
