@@ -71,7 +71,7 @@ function Questions(props) {
         return(
             <>
                 { questionView != null && <Popup close={closeQuestion}><SingleQuestionTeacher question={questionView} editable={TrustedScriptURL}/></Popup> }
-                <div className="questionsView">
+                <div className="contentView">
                     <div className="header">
                         <button className="btn btn-secondary"><NavLink className='basicLink' to={lectureId ? `/${courseId}/lectures/${lectureId}` : `/${courseId}`}>&lt;&lt; Back to {lectureId ? 'Lecture' : 'Course'}</NavLink></button>
                         { (submissionPosted || submissionErrors.length > 0) && <Notice message={submissionErrors.length > 0 ? submissionErrors[0] : "Questions added to lecture"} status={submissionErrors.length > 0 ? "error" : "success"}/>}

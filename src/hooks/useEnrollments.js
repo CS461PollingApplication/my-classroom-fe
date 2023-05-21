@@ -21,7 +21,7 @@ function useEnrollments() {
             setMessage(response.message)
             setError(response.error)
             if (response.status === 200) {
-                dispatch(addEnrollments(courseId, response.data))
+                dispatch(addEnrollments(courseId, response.data.enrollments))
             }
             setLoading(false)
         }

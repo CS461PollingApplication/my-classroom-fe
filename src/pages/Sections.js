@@ -10,7 +10,7 @@ import SectionCard from '../components/SectionCard'
 function Sections() {
     const [ sections, message, error, loading ] = useSections()
     const [ showCreateModal, setShowCreateModal ] = useState(false)
-    const { courseId } = useParams
+    const { courseId } = useParams()
 
     const closeCreateModal = () => {
         setShowCreateModal(false)
@@ -21,21 +21,26 @@ function Sections() {
     }
 
     return(
-        <>
-            { showCreateModal && <Popup close={closeCreateModal}><AddSection/></Popup> }
-            <button className="btn btn-add" onClick={(e) => {openCreateModal()}}>Create Section</button>
-            { message && <Notice error={error ? "error" : ""} message={message}/>}
-            { loading ? <TailSpin visible={true}/> : <>
-                {/*Teacher Courses*/}
-                { sections[courseId] != null ? <div id="teacher-courses">
-                    <div>
-                        {sections[courseId].map((section) => {
-                            return <SectionCard key={section.id} section={section} />
-                        })}
-                    </div>
-                </div> : <Notice message={"You have not created any sections for this course yet"}/>}
-            </>}
-        </>
+        <div className="contentView">
+            <div className="header">
+                { showCreateModal && <Popup close={closeCreateModal}><AddSection/></Popup> }
+                <button className="btn btn-add" onClick={(e) => {openCreateModal()}}>Create Section</button>
+                { message && <Notice error={error ? "error" : ""} message={message}/>}
+            </div>
+            <div className="">
+                { loading ? <TailSpin visible={true}/> : <>
+                    {/*Teacher Courses*/}
+                    { sections[courseId] != null ? <div id="teacher-courses">
+                        <div>
+                            {sections[courseId].map((section) => {
+                                return <SectionCard key={section.id} section={section} />
+                            })}
+                        </div>
+                    </div> : <Notice message={"You have not created any sections for this course yet"}/>}
+                </>}
+            </div>
+        </div>
+        
     )
 }
 
