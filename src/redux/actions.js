@@ -31,6 +31,8 @@ export const ADD_ENROLLMENTS = "ADD_ENROLLMENTS"
 export const ADD_SECTIONS = "ADD_SECTIONS"
 export const ADD_LECTURES = "ADD_LECTURES"
 export const ADD_QUESTIONS = "ADD_QUESTIONS"
+export const ADD_LECTURES_IN_SECTION = "ADD_LECTURES_IN_SECTION"
+export const PUBLISH_LECTURE_IN_SECTION = "PUBLISH_LECTURE_IN_SECTION"
 
 export function setCourses(studentCourses, teacherCourses) {
     return { type: SET_COURSES, studentCourses, teacherCourses }
@@ -66,6 +68,14 @@ export function addLectures(courseId, lectures) {
 
 export function addQuestions(courseId, questions) {
     return { type: ADD_QUESTIONS, courseId, questions}
+}
+
+export function addLecturesInSection(sectionId, lectures) {
+    return { type: ADD_LECTURES_IN_SECTION, sectionId, lectures }
+}
+
+export function publishLectureInSection(sectionId, lectureId) {
+    return { type: PUBLISH_LECTURE_IN_SECTION, sectionId, lectureId}
 }
 
 export const STAGE_QUESTION_IN_LECTURE = "STAGE_QUESTION_IN_LECTURE"

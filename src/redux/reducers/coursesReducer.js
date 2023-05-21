@@ -1,8 +1,9 @@
-const { SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_SECTIONS, ADD_ENROLLMENTS } = require('../actions')
+const { PUBLISH_LECTURE_IN_SECTION, ADD_LECTURES_IN_SECTION, SET_COURSES, CREATE_COURSE, DELETE_COURSE, UPDATE_COURSE, JOIN_COURSE, ADD_LECTURES, ADD_QUESTIONS, ADD_SECTIONS, ADD_ENROLLMENTS } = require('../actions')
 
 const emptyState = {
     studentCourses: null,
     teacherCourses: null,
+    lecturesInSection: {},
     sections: {},
     enrollments: {},
     lectures: {},
@@ -86,6 +87,29 @@ function coursesReducer(state = emptyState, action) {
                 questions: {
                     ...state.questions,
                     ...newQuestions
+                }
+            }
+        case ADD_LECTURES_IN_SECTION:
+            return {
+                ...state,
+                lecturesInSection: {
+                    ...state.lecturesInSection,
+                    [action.sectionId]: action.lectures
+                }
+            }
+        case PUBLISH_LECTURE_IN_SECTION:
+            let newLecturesInSection = [...state.lecturesInSection[action.sectionId]]
+            newLecturesInSection = newLecturesInSection.map((lectureInSection) => {
+                if (lectureInSection.id == action.lectureId) {
+                    return {...lectureInSection, published: !lectureInSection.published}
+                }
+                else return lectureInSection
+            })
+            return {
+                ...state,
+                lecturesInSection: {
+                    ...state.lecturesInSection,
+                    [action.sectionId]: newLecturesInSection
                 }
             }
         default:
