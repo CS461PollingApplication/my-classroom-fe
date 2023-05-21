@@ -18,24 +18,31 @@ function Landing(props) {
             {/*No Courses*/}
             { message ? <Notice error={error ? "error" : ""} message={message}/> : (!courses.studentCourses && !courses.instructorCourses) ? <Notice message={"You do not have any courses yet"}/> : <></>}
             {/*Join Course button for all users*/}
-            <JoinCourse className="buttons" class="join-course"/>
+            <JoinCourse className="buttons"/>
 
             {/*Student Courses*/}
             { loading ? <TailSpin visible={true}/> : <div class="all-courses"> 
                 {courses.studentCourses && <div id="student-courses">
+                    <p id="landing-subtitle" >Student Courses:</p>
+                    <hr></hr>
+
+                    <div className='courses'>
                     {courses.studentCourses.map((studentCourse) =>  {
                         return <CourseCard key={studentCourse.id} course={studentCourse} role={"student"} />        
                     })}
+                    </div>
                 </div>}
 
                 {/*Teacher Courses*/}
                 {courses.teacherCourses && <div id="teacher-courses">
-                    <div className="buttons">
-                        <Link to={`/createcourse`}>
-                            <Button variant="secondary">Create Course</Button>
-                        </Link>
-                    </div>
-                    <div>
+                    <Link id="create-course-btn" to={`/createcourse`}>
+                        <Button variant="primary" className='btn-add'>Create Course</Button>
+                    </Link>
+
+                    <p id="landing-subtitle">Teacher Courses:</p>
+                    <hr></hr>
+                    
+                    <div className='courses'>
                         {courses.teacherCourses.map((teacherCourse) => {
                             return <CourseCard key={teacherCourse.id} course={teacherCourse} role={"teacher"} />
                         })}

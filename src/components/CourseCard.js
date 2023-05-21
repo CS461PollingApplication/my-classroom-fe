@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 function CourseCard (props) {
     return (
           //Using Card imported from React
-          <div> 
-            <Card>
+         
+            <Card className="course-card">
             <Card.Header>{props.course.name}</Card.Header>
             <Card.Body>
               
@@ -19,7 +19,7 @@ function CourseCard (props) {
 
             </Card.Body>
           </Card>
-        </div>
+        
       );
 }
 
