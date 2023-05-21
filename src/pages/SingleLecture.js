@@ -20,7 +20,18 @@ function SingleLecture() {
             {Cmessage ? <Notice error={Cerror ? "error" : ""} Cmessage={Cmessage}/> : <></>}
 
             {(Lloading|Qloading|Cloading) ? <TailSpin visible={true}/> : 
-                <Lecture key={lectureId} lecture={lectures[courseId][lectureId-1]} questions={questions} courseId={course.id} role={role}/>
+                <Lecture 
+                    key={lectureId} 
+                    lecture={lectures[courseId][lectureId-1]} 
+                    questions={questions} 
+                    courseId={course.id} 
+                    role={role} 
+                    published={lectures[courseId][lectureId-1].LectureForSections.length > 0 ? 
+                        lectures[courseId][lectureId-1].LectureForSections[lectureId].published :
+                        0} 
+                    sectionId={lectures[courseId][lectureId-1].LectureForSections.length > 0 ?
+                        lectures[courseId][lectureId-1].LectureForSections[lectureId].sectionId : 
+                        -1}/>
             }
         </>
     )

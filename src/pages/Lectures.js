@@ -22,7 +22,7 @@ function Lectures(props){
             </Button>
         </Link>
 
-        <p id="lecture-subtitle">{course.name} Lectures</p>
+        <p id="lectures-subtitle">{course.name} Lectures</p>
 
         {/*Add Lecture Button - ONLY if enrollment == instructor*/}
         {role == "teacher" && 
@@ -35,7 +35,7 @@ function Lectures(props){
         {/*No Lectures*/}
         { message ? <Notice error={error ? "error" : ""} message={message}/> : (!lectures) ? <Notice message={"You Do Not Have Any Lectures Yet"}/> : <></>}
 
-        <div className="lecture-container">
+        <div className="lectures-container">
             { (Cloading || loading) ? <TailSpin visible={true}/> : lectures[courseId].map((lecture) => {
                 return <LectureCard key={lecture.id} lecture={lecture} view={role} />
             })}
