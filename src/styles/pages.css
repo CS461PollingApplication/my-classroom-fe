@@ -338,3 +338,16 @@ input {
     border: 2px solid rgb(92, 92, 92);
     border-radius: 10px;
 }
+
+/* Landing Page */
+.landing-page {
+    width: 100%;
+}
+
+.join-course {
+    background-color: #0d6efd;
+}
+
+.all-courses {
+    
+}

@@ -14,14 +14,14 @@ function Landing(props) {
     
     // cards for student and teacher courses
     return(
-        <>
+        <div class="landing-page">
             {/*No Courses*/}
             { message ? <Notice error={error ? "error" : ""} message={message}/> : (!courses.studentCourses && !courses.instructorCourses) ? <Notice message={"You do not have any courses yet"}/> : <></>}
             {/*Join Course button for all users*/}
-            <JoinCourse className="buttons"/>
+            <JoinCourse className="buttons" class="join-course"/>
 
             {/*Student Courses*/}
-            { loading ? <TailSpin visible={true}/> : <>
+            { loading ? <TailSpin visible={true}/> : <div class="all-courses"> 
                 {courses.studentCourses && <div id="student-courses">
                     {courses.studentCourses.map((studentCourse) =>  {
                         return <CourseCard key={studentCourse.id} course={studentCourse} role={"student"} />        
@@ -41,8 +41,8 @@ function Landing(props) {
                         })}
                     </div>
                 </div>}
-            </>}
-        </>
+            </div>}
+        </div>
     )
 }
 
