@@ -29,6 +29,7 @@ export const UPDATE_COURSE = "UPDATE_COURSE"
 export const JOIN_COURSE = "JOIN_COURSE"
 export const ADD_LECTURES = "ADD_LECTURES"
 export const ADD_QUESTIONS = "ADD_QUESTIONS"
+export const ADD_QUESTION = "ADD_QUESTION"
 
 export function setCourses(studentCourses, teacherCourses) {
     return { type: SET_COURSES, studentCourses, teacherCourses }
@@ -58,10 +59,15 @@ export function addQuestions(courseId, questions) {
     return { type: ADD_QUESTIONS, courseId, questions}
 }
 
+export function addQuestion(courseId, question) {
+    return { type: ADD_QUESTION, courseId, question }
+}
+
 export const STAGE_QUESTION_IN_LECTURE = "STAGE_QUESTION_IN_LECTURE"
 export const UNSTAGE_QUESTION_IN_LECTURE = "UNSTAGE_QUESTION_IN_LECTURE"
 export const ADD_STAGED_QUESTION = "ADD_STAGED_QUESTION"
 export const ADD_LECTURE_QUESTIONS = "ADD_LECTURE_QUESTIONS"
+export const TOGGLE_PUBLISHED_FOR_QUESTION_IN_LECTURE = "TOGGLE_PUBLISHED_FOR_QUESTION_IN_LECTURE"
 
 export function stageQuestionInLecture(lectureId, question) {
     return { type: STAGE_QUESTION_IN_LECTURE, lectureId, question}
@@ -77,4 +83,8 @@ export function addStagedQuestion(lectureId, questionId) {
 
 export function addLectureQuestions(lectureId, questions) {
     return { type: ADD_LECTURE_QUESTIONS, lectureId, questions }
+}
+
+export function togglePublishedForQuestionInLecture(lectureId, questionId) {
+    return { type: TOGGLE_PUBLISHED_FOR_QUESTION_IN_LECTURE, lectureId, questionId }
 }
