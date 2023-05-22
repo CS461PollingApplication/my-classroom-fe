@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import apiUtil from '../utils/apiUtil'
 import { TailSpin } from  'react-loader-spinner'
+import { togglePublishedForQuestionInLecture } from '../redux/actions'
 
 function QuestionCard(props){
     const navigate = useNavigate()
@@ -26,8 +27,8 @@ function QuestionCard(props){
         setError(response.error)
         setMessage(response.message)
 
-        if(response.status === 200){
-            //TODO: add redux implementation
+        if(response.status === 200) {
+            dispatch(togglePublishedForQuestionInLecture(lectureId, props.question.id))
             setPublished(!published)
         }
     }
@@ -64,7 +65,7 @@ function QuestionCard(props){
                      </Button> }
                     
                     {/*Default is published state of lecture*/}
-                    { sectionId && <div className='switch'>
+                    { sectionId && props.lecturePublished && <div className='switch'>
                             <label>
                                 <span>Publish Question</span>
                                 <Switch onChange={() => changePublishState()} checked={published}/>
