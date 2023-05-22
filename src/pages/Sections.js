@@ -23,7 +23,7 @@ function Sections() {
     return(
         <div className="contentView">
             <div className="header">
-                { showCreateModal && <Popup close={closeCreateModal}><AddSection/></Popup> }
+                { showCreateModal && <Popup close={closeCreateModal}><AddSection closeFunction={closeCreateModal} /></Popup> }
                 <button className="btn btn-add btn-secondary" onClick={(e) => {openCreateModal()}}>Create Section</button>
                 { message && <Notice error={error ? "error" : ""} message={message}/>}
             </div>

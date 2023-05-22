@@ -29,6 +29,7 @@ export const UPDATE_COURSE = "UPDATE_COURSE"
 export const JOIN_COURSE = "JOIN_COURSE"
 export const ADD_ENROLLMENTS = "ADD_ENROLLMENTS"
 export const ADD_SECTIONS = "ADD_SECTIONS"
+export const ADD_SECTION = "ADD_SECTION"
 export const ADD_LECTURES = "ADD_LECTURES"
 export const ADD_QUESTIONS = "ADD_QUESTIONS"
 export const ADD_LECTURES_IN_SECTION = "ADD_LECTURES_IN_SECTION"
@@ -61,6 +62,10 @@ export function addEnrollments(courseId, enrollments) {
 
 export function addSections(courseId, sections) {
     return { type: ADD_SECTIONS, courseId, sections}
+}
+
+export function addSection(courseId, section) {
+    return { type: ADD_SECTION, courseId, section }
 }
 
 export function addLectures(courseId, lectures) {
