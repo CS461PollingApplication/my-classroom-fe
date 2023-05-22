@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import apiUtil from '../utils/apiUtil'
 import { publishLectureInSection } from '../redux/actions';
 import { useDispatch } from 'react-redux'
+import { Button, Card } from "react-bootstrap"
 
 function LectureInSection() {
     const dispatch = useDispatch()
@@ -18,6 +19,7 @@ function LectureInSection() {
     const [ lecturesInSection, LSmessage, LSerror, LSloading ] = useLecturesInSection()
     const { courseId, lectureId, sectionId } = useParams()
     const [ published, setPublished ] = useState(false)
+    const [ lecture, setLecture ] = useState({})
     const [ loadingPublish, setLoadingPublish ] = useState(false)
     const [ errorPublish, setErrorPublish ] = useState(false)
     const [ messagePublish, setMessagePublish ] = useState("")
@@ -27,6 +29,7 @@ function LectureInSection() {
             lecturesInSection.forEach((lecture) => {
                 if (lecture.id == lectureId)
                     setPublished(lecture.published)
+                    setLecture(lecture)
             })
         }
     }, [ lecturesInSection ])
@@ -46,12 +49,23 @@ function LectureInSection() {
     }
 
     return (
-        <div className="contentView">
+        <div className="lecture-page-container">
+            <div className="lecture-header">
+                <Link className='back-btn-lectures' to={`/${courseId}/sections/${sectionId}`}>
+                    <Button className='back-btn'> 
+                        <div id="back-btn-image"/>
+                    </Button>
+                </Link>
+                <p className="lecture-subtitle">{lecture ? lecture.title : ''} Lecture Questions</p>
+            </div>
+
+            <hr className="lecture-hr"></hr>
+            
             {loading ? <TailSpin visible={true}/> : 
             message ? <Notice error={error ? "error" : ""} message={message}/> :
-                <div className='teacher-lecture'>
+                <div className='lecture-container'>
                     <div className='switch'>
-                        <label>
+                        <label className="lecture-publish-switch">
                             <span>Publish Lecture</span>
                             { loadingPublish ? <TailSpin visible={true}/> : <Switch onChange={() => changePublishState()} checked={published}/> }
                         </label>

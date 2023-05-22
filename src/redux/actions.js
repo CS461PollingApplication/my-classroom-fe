@@ -67,6 +67,10 @@ export function addLectures(courseId, lectures) {
     return { type: ADD_LECTURES, courseId, lectures}
 }
 
+export function togglePublishedLecture(courseId, lectureId){
+    return { type: TOGGLE_PUBLISHED_STATE_FOR_LECTURE, courseId, lectureId}
+}
+
 export function addQuestions(courseId, questions) {
     return { type: ADD_QUESTIONS, courseId, questions}
 }
