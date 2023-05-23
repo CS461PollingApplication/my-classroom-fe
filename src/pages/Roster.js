@@ -12,9 +12,9 @@ function Roster(props) {
         <>
         { message ? <Notice error={error ? "error" : ""} message={message}/> : (!sections[courseId]) ? <Notice message={"You Do Not Have Any Sections Yet"}/> : <></>}
 
-        { (loading) ? <TailSpin visible={true}/> : sections[courseId].map((section) => {
+        { (loading) ? <TailSpin visible={true}/> : (sections[courseId]) ? sections[courseId].map((section) => {
             return <SectionCard key={section.id} section={section} courseId={courseId} view={'roster'}/>
-        })}
+        }) : <></>}
         </>
     )
 }

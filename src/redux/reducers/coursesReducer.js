@@ -74,7 +74,7 @@ function coursesReducer(state = emptyState, action) {
                 ...state,
                 sections: {
                     ...state.sections,
-                    [action.courseId]: state.sections[action.courseId].concat([action.section])
+                    [action.courseId]: (state.sections[action.courseId]) ? state.sections[action.courseId].concat([action.section]) : [action.section]
                 }
             }
         case ADD_LECTURES: // should be called after API returns course data for a user
