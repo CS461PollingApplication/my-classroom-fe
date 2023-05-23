@@ -19,9 +19,9 @@ function LectureCard (props) {
                     <div></div>}
 
                     {props.view==="teacher" ? 
-                        <Link to={`${props.lecture.id}`}>
+                        <Link to={props.section ? `lectures/${props.lecture.id}` : `${props.lecture.id}`}>
                             <Button className="viewLectureBtn">
-                            Edit Lecture 
+                            { props.section ? `View Lecture` : `Edit Lecture`}
                             </Button>
                         </Link> : 
                     <div></div>}
